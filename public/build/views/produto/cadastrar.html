@@ -1,0 +1,92 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">cadastrar de empresa</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+                        <!--   {!! csrf_field() !!}-->
+
+                        <div ng-class="{'has-error': !form.nome.$valid && form.nome.$touched}">
+                            <label class="col-md-1 control-label">Nome:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="nome" ng-model="empresa.nome"
+                                       required>
+                                <div ng-messages="form.nome.$error" class="help-block"
+                                     ng-show="form.nome.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-class="{'has-error': !form.categoria.$valid && form.categoria.$touched}">
+                            <label class="col-md-1 control-label">Categoria:</label>
+                            <div class="col-md-5 form-group">
+                                <input class="form-control" type="search" name="categoria"
+                                       ng-model="produto.categoria" value="0"
+                                       typeahead="o.id as o.nome for o in categorias | filter:$viewValue | limitTo:10"
+                                       typeahead-input-formatter="formatNameCategoria($model)"/>
+                            </div>
+                        </div>
+
+                        <div ng-class="{'has-error': !form.endereco.$valid && form.endereco.$touched}">
+                            <label class="col-md-1 control-label">endereco:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="endereco" ng-model="empresa.endereco"
+                                       required>
+                                <div ng-messages="form.endereco.$error" class="help-block"
+                                     ng-show="form.endereco.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-class="{'has-error': !form.telefone.$valid && form.telefone.$touched}">
+                            <label class="col-md-1 control-label">telefone:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="telefone" ng-model="empresa.telefone"
+                                       required>
+                                <div ng-messages="form.telefone.$error" class="help-block"
+                                     ng-show="form.telefone.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-class="{'has-error': !form.razao_social.$valid && form.razao_social.$touched}">
+                            <label class="col-md-1 control-label">razao:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="razao_social" ng-model="empresa.razao_social"
+                                       required>
+                                <div ng-messages="form.razao_social.$error" class="help-block"
+                                     ng-show="form.razao_social.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div ng-class="{'has-error': !form.cnpj.$valid && form.cnpj.$touched}">
+                            <label class="col-md-1 control-label">razao:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="cnpj" ng-model="empresa.cnpj"
+                                       required>
+                                <div ng-messages="form.cnpj.$error" class="help-block"
+                                     ng-show="form.cnpj.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2 col-md-offset-1">
+                                <button type="submit" class="btn btn-success">CADASTRAR</button>
+                                <button type="submit" class="btn btn-primary">VOLTAR</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de coletores</div>
+                <div class="panel-body">
+                    Busca: <input type="search" ng-model="busca">
+                    <a ng-href="#/coletores/cadastrar">cadastrar</a>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-4"> NOME</th>
+                            <th class="col-md-2"> EMAIL</th>
+                            <th class="col-md-2"> TELEFONE</th>
+                            <th class="col-md-2"> WHATSAPP</th>
+                            <th class="col-md-2"> AÇÃO</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        <tr ng-repeat="dados in coletores | filter:busca | filter:codigo | limitTo:15">
+                            <td> {{ dados.nome }}</td>
+                            <td> {{ dados.email }}</td>
+                            <td> {{ dados.telefone }}</td>
+                            <td> {{ dados.whatsapp }}</td>
+                            <td>
+                                <a ng-href="#/coletores/{{dados.id}}/editar">Editar</a> |
+                                <a ng-href="#/coletores/{{dados.id}}/remover">Excluir</a>
+                            </td>
+                        </tr>
+                        </tbody>
+
+                        <tr>
+                            <td>
+                                foram encontrados {{ coletores.length }} registros
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

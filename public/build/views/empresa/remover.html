@@ -1,0 +1,30 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Exclusão de Cliente</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="remove()">
+                        <p>Deseja excluir realmente esse cliente?</p>
+                        <ul>
+                            <li>
+                                <stron>Name:</stron>
+                                {{client.name}}
+                            </li>
+                            <li>
+                                <stron>email:</stron>
+                                {{client.email}}
+                            </li>
+                            <li>
+                                <stron>telefone:</stron>
+                                {{client.telefone}}
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-danger" ng-click="remove()">EXCLUIR</button>
+                        <button type="submit" class="btn btn-primary">VOLTAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de produtos</div>
+                <div class="panel-body">
+                    Busca: <input type="search" ng-model="busca">
+                    codigo: <input type="search" ng-model="codigo">
+                    <a ng-href="#/produtos/cadastrar">cadastrar</a>
+                    {{master}}
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1"><input type="checkbox" ng-model="master"> TODOS</th>
+                            <th class="col-md-2"> CÓDIGO BARRA</th>
+                            <th class="col-md-3"> PRODUTO</th>
+                            <th class="col-md-2"> DEPARTAMENTO</th>
+                            <th class="col-md-2"> SEÇÃO</th>
+                            <th class="col-md-2"> CATEGORIA</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="dados in produtos | filter:busca | filter:codigo | limitTo:20" ng-if="">
+                            <td>
+                                <input type="checkbox" ng-checked="master" ng-model="isTrue"
+                                       ng-change="getIndex(dados.id,isTrue )"/>
+                            </td>
+                            <td> {{ dados.id }}</td>
+                            <td> {{ dados.nome }}</td>
+                            <td> {{ dados.departamento }}</td>
+                            <td> {{ dados.secao }}</td>
+                            <td> {{ dados.categoria }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                foram encontrados {{ produtos.length }} registros
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">cadastrar de Clientes 1234</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+
+                        {{pesquisa.id}} {{pesquisa.concorrente_id}}
+                        <table class="table table-hover">
+                            <thead>
+                            <tr>
+                                <th> código barra</th>
+                                <th> produto</th>
+                                <th> atacado </th>
+                                <th> varejo </th>
+                                <th> politica </th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr ng-repeat="dados in pesquisa.itens | filter:busca | limitTo:15">
+                                <td> {{ dados.produto_id }}</td>
+                                <td> {{ dados.produto_id }}</td>
+                                <td> {{ dados.atacado }}</td>
+                                <td> {{ dados.varejo }}</td>
+                                <td> {{ dados.politica }}</td>
+                                <td>
+                                    <a ng-href="#/pesquisas/{{dados.id}}/editar">Editar</a> |
+                                    <a ng-href="#/pesquisas/{{dados.id}}/remover">Excluir</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+                        <label class="col-md-1 control-label">Novo Produto:</label>
+                        <div class="col-md-5 form-group">
+                            <input class="form-control" type="search"
+                                   ng-model="listaProduto"
+                                   typeahead="o.id as o.nome for o in produtos | filter:$viewValue | limitTo:10"
+                                   typeahead-input-formatter="formatNameProduto($model)"/>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div ng-repeat="listaProduto in produto track by $index" class="form-group">
+                                <div class="row">
+                                    <div class="col-md-10"> {{listaProduto.nome}}</div>
+                                    <div class="col-md-2" ng-click="removerEmpresa($index)">remover</div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                            <div class="col-md-offset-1 col-md-11">
+                                <button type="submit" class="btn btn-success">CADASTRAR</button>
+                                <a ng-href="#/coletores">
+                                    <button type="submit" class="btn btn-primary"> VOLTAR</button>
+                                </a>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

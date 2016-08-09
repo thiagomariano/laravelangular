@@ -1,0 +1,34 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">editar categoria</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+                        <!--   {!! csrf_field() !!}-->
+
+                        <div ng-class="{'has-error': !form.nome.$valid && form.nome.$touched}">
+                            <label class="col-md-1 control-label">Concorrente:</label>
+                            <div class="col-md-5 form-group">
+                                <input type="text" class="form-control" name="nome" ng-model="categoria.nome"
+                                       required>
+                                <div ng-messages="form.nome.$error" class="help-block"
+                                     ng-show="form.nome.$touched">
+                                    <div ng-message="required"> Campo obrigatório.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-2 col-md-offset-1">
+                                <button type="submit" class="btn btn-success">CADASTRAR</button>
+                                <button type="submit" class="btn btn-primary">VOLTAR</button>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

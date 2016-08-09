@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de Clientes</div>
+                <div class="panel-body">
+                    Busca: <input type="search" ng-model="busca">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>NOME: 1</th>
+                            <th>E-MAIL: 2</th>
+                            <th>TELEFONE: 3</th>
+                            <th>AÇÃO: 4</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="dados in clients | filter:busca | limitTo:15">
+                            <td> {{ dados.name }}</td>
+                            <td> {{ dados.email }}</td>
+                            <td> {{ dados.telefone }}</td>
+                            <td>
+                                <a ng-href="#/clientes/{{dados.id}}/editar">Editar</a> |
+                                <a ng-href="#/clientes/{{dados.id}}/remover">Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                foram encontrados  {{ clients.length }} registros
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

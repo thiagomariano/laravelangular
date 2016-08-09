@@ -1,0 +1,69 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">cadastrar de pesquisa</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" name="form" role="form" method="POST" ng-submit="save()">
+
+                        <label class="col-md-1 control-label">Coletor:</label>
+                        <div class="col-md-5 form-group">
+                            <input class="form-control" type="search"
+                                   ng-model="pesquisa.coletor" name="pesquisa.coletor"
+                                   typeahead="o.id as o.nome for o in getColetores($viewValue) | limitTo:10"
+                                   typeahead-input-formatter="formatNameColetor($model)"/>
+                        </div>
+                        <label class="col-md-1 control-label">Data:</label>
+                        <div class="col-md-5 form-group">
+                            <input class="form-control" type="search" name="pesquisa.data" ng-model="pesquisa.data"/>
+                        </div>
+
+
+                        <label class="col-md-1 control-label">Concorrente:</label>
+                        <div class="col-md-5 form-group">
+                            <input class="form-control" type="search"
+                                   ng-model="listaEmpresa"
+                                   typeahead="o.id as o.nome for o in empresas | filter:$viewValue | limitTo:10"
+                                   typeahead-input-formatter="formatNameEmpresa($model)"/>
+                        </div>
+                        <label class="col-md-1 control-label">Produtos:</label>
+                        <div class="col-md-5 form-group">
+                            <input class="form-control" type="search"
+                                   ng-model="listaProduto"
+                                   typeahead="o.id as o.nome for o in produtos | filter:$viewValue | limitTo:10"
+                                   typeahead-input-formatter="formatNameProduto($model)"/>
+                        </div>
+                        <div class="col-md-offset-1 col-md-11">
+                            <button type="submit" class="btn btn-success">CADASTRAR</button>
+                            <a ng-href="#/coletores">
+                                <button type="submit" class="btn btn-primary"> VOLTAR</button>
+                            </a>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div ng-repeat="listaEmpresa in empresa track by $index" class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-10"> {{listaEmpresa.nome}}</div>
+                                        <div class="col-md-2" ng-click="removerEmpresa($index)">remover</div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div ng-repeat="listaProduto in produto track by $index" class="form-group">
+                                    <div class="row">
+                                        <div class="col-md-10"> {{listaProduto.nome}}</div>
+                                        <div class="col-md-2" ng-click="removerEmpresa($index)">remover</div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

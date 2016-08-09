@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Listagem de Categorias</div>
+                <div class="panel-body">
+                    Busca: <input type="search" ng-model="busca">
+                    <a ng-href="#/categorias/cadastrar">cadastrar</a>
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th class="col-md-1"> # </th>
+                            <th class="col-md-9"> Nome </th>
+                            <th class="col-md-2"> Nome </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="dados in categorias | filter:busca | limitTo:15">
+                            <td> {{ dados.id }}</td>
+                            <td> {{ dados.nome }}</td>
+                            <td>
+                                <a ng-href="#/categorias/{{dados.id}}/editar">Editar</a> |
+                                <a ng-href="#/categorias/{{dados.id}}/remover">Excluir</a>
+                            </td>
+                        </tr>
+                        <tr>
+                                foram encontrados  {{ categorias.length }} registros
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
